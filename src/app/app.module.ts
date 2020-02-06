@@ -12,8 +12,8 @@ import { HomeComponent } from './core/home/home.component';
 import { LoginComponent } from './core/login/login.component';
 import { SignUpComponent } from './core/sign-up/sign-up.component';
 import { CenterSectionComponent } from './share/center-section/center-section.component';
-import { InputComponent } from './shared/input/input.component';
-import { ButtonComponent } from './shared/button/button.component';
+import { ErrorMessageComponent } from './shared/error-message/error-message.component';
+import { ConfirmPasswordDirective } from './validators/confirm-password/confirm-password.directive';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import { ButtonComponent } from './shared/button/button.component';
     LoginComponent,
     SignUpComponent,
     CenterSectionComponent,
-    InputComponent,
-    ButtonComponent,
+    ErrorMessageComponent,
+    ConfirmPasswordDirective,
   ],
   imports: [
     BrowserModule,

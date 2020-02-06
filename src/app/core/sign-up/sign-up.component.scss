@@ -1,0 +1,55 @@
+@import '../../../styles/variables';
+@import '../../../styles/mediaQueries';
+
+.form-section {
+  height: 70vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+.form {
+  border: solid 1px lighten($dark, 60%);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 90vw;
+  display: grid;
+  grid-gap: 1rem;
+  @include md {
+    width: 70vw;
+  }
+  @include lg {
+    width: 40rem;
+  }
+  &__field {
+    display: grid;
+    grid-gap: 0.4rem;
+    &__input {
+      border: solid 1px lighten($dark, 60%);
+      border-radius: 0.2rem;
+      font-size: 1rem;
+      padding: 0.5rem;
+      color: $dark;
+      &::placeholder {
+        color: lighten($dark, 40%);
+      }
+    }
+    &__label {
+      color: $dark;
+      font-weight: bold;
+      font-size: 0.9rem;
+      &.error {
+        color: $primary;
+      }
+    }
+  }
+  &__button {
+    border: none;
+    border-radius: 0.2rem;
+    background: $primary;
+    padding: 0.5rem;
+    color: $white;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+}
