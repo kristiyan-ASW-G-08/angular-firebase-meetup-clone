@@ -1,3 +1,40 @@
-<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-  <input type="email" />
-</form>
+<section class="form-section">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form__field">
+      <label class="form__field__label">Email</label>
+      <input
+        class="form__field__input"
+        type="email"
+        formControlName="email"
+        placeholder="Enter an email address"
+      />
+      <label
+        *ngIf="loginForm.controls.email?.errors?.required"
+        class="form__field__label error"
+        >Email is Required</label
+      >
+      <label
+        *ngIf="loginForm.controls.email?.errors?.email"
+        class="form__field__label error"
+        >Must be a valid email</label
+      >
+    </div>
+
+    <div class="form__field">
+      <label class="form__field__label">Password</label>
+      <input
+        class="form__field__input"
+        type="password"
+        formControlName="password"
+        placeholder="Enter a Password"
+      />
+      <label
+        *ngIf="loginForm.controls.password?.errors?.required"
+        class="form__field__label error"
+        >Password is Required</label
+      >
+    </div>
+
+    <button class="form__button">Submit</button>
+  </form>
+</section>

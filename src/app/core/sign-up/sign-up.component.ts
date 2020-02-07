@@ -7,8 +7,6 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-import { ConfirmPasswordDirective } from 'src/app/validators/confirm-password/confirm-password.directive';
-
 interface User {
   username: string;
   email: string;
@@ -25,7 +23,7 @@ function confirmPassword({
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss'],
+  styleUrls: ['../../../styles/partials/form.scss'],
 })
 export class SignUpComponent {
   signUpForm: FormGroup;

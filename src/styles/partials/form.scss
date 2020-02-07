@@ -1,20 +1,20 @@
-@import '../../../styles/variables';
-@import '../../../styles/mediaQueries';
+@import '../modules/variables';
+@import '../modules/mediaQueries';
+@import '../modules/mixins';
 
 .form-section {
   height: 70vh;
   width: 100vw;
-  display: grid;
-  place-items: center;
+  @include center;
 }
 
 .form {
-  border: solid 1px lighten($dark, 60%);
+  @include border;
   border-radius: 0.5rem;
   padding: 1rem;
   width: 90vw;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 1.5rem;
   @include md {
     width: 70vw;
   }
@@ -25,7 +25,7 @@
     display: grid;
     grid-gap: 0.4rem;
     &__input {
-      border: solid 1px lighten($dark, 60%);
+      @include border;
       border-radius: 0.2rem;
       font-size: 1rem;
       padding: 0.5rem;

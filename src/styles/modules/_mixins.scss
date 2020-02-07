@@ -1,0 +1,7 @@
+@mixin border {
+  border: solid 1px lighten($dark, 60%);
+}
+@mixin center {
+  display: grid;
+  place-items: center;
+}
