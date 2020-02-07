@@ -14,6 +14,7 @@ import { SignUpComponent } from './core/sign-up/sign-up.component';
 import { CenterSectionComponent } from './share/center-section/center-section.component';
 import { ErrorMessageComponent } from './shared/error-message/error-message.component';
 import { ConfirmPasswordDirective } from './validators/confirm-password/confirm-password.directive';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ConfirmPasswordDirective } from './validators/confirm-password/confirm-
     CenterSectionComponent,
     ErrorMessageComponent,
     ConfirmPasswordDirective,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

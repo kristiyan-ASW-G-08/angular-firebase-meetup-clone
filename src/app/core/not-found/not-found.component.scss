@@ -1,0 +1,15 @@
+@import '../../../styles/modules/variables';
+@import '../../../styles/modules/mixins';
+section {
+  display: grid;
+  place-content: center center;
+  justify-items: center;
+  height: 70vh;
+  h1 {
+    font-size: 4rem;
+    color: $primary;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+}
