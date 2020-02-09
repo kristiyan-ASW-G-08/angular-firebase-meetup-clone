@@ -13,6 +13,10 @@ import { LoginComponent } from './core/login/login.component';
 import { SignUpComponent } from './core/sign-up/sign-up.component';
 import { ErrorMessageComponent } from './shared/error-message/error-message.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,12 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularFireModule.initializeApp(
+      environment.firebase,
+      'angular-meetup-clone',
+    ),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

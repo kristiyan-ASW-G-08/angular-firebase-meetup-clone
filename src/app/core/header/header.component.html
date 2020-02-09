@@ -37,6 +37,7 @@
   <ul class="mobile-nav-list">
     <li class="mobile-nav-list-link">
       <a
+        (click)="toggleMobileNav()"
         routerLink=""
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -44,10 +45,20 @@
       >
     </li>
     <li class="mobile-nav-list-link">
-      <a routerLink="login" routerLinkActive="active">Log In</a>
+      <a
+        (click)="toggleMobileNav()"
+        routerLink="login"
+        routerLinkActive="active"
+        >Log In</a
+      >
     </li>
     <li class="mobile-nav-list-link">
-      <a routerLink="sign-up" routerLinkActive="active">Sign Up</a>
+      <a
+        (click)="toggleMobileNav()"
+        routerLink="sign-up"
+        routerLinkActive="active"
+        >Sign Up</a
+      >
     </li>
   </ul>
 </nav>
