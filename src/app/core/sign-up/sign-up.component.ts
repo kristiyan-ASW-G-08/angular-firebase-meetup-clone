@@ -13,7 +13,7 @@ interface User {
   password: string;
   confirmPassword: string;
 }
-function confirmPassword({
+export function confirmPassword({
   value: { password, confirmPassword },
 }: AbstractControl): ValidationErrors | null {
   return password === confirmPassword
@@ -33,7 +33,7 @@ export class SignUpComponent {
       email: ['', [Validators.required, Validators.email]],
       passwords: formBuilder.group(
         {
-          password: ['', [Validators.min(12), Validators.required]],
+          password: ['', [Validators.minLength(12), Validators.required]],
           confirmPassword: ['', [Validators.required]],
         },
         { validators: [confirmPassword] },

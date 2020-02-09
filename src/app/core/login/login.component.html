@@ -8,16 +8,24 @@
         formControlName="email"
         placeholder="Enter an email address"
       />
-      <label
-        *ngIf="loginForm.controls.email?.errors?.required"
-        class="form__field__label error"
-        >Email is Required</label
+      <div
+        *ngIf="
+          loginForm.controls['email'].invalid &&
+          (loginForm.controls['email'].dirty ||
+            loginForm.controls['email'].touched)
+        "
       >
-      <label
-        *ngIf="loginForm.controls.email?.errors?.email"
-        class="form__field__label error"
-        >Must be a valid email</label
-      >
+        <label
+          *ngIf="loginForm.get('email').hasError('required')"
+          class="form__field__label error"
+          >Email is Required</label
+        >
+        <label
+          *ngIf="loginForm.get('email').hasError('email')"
+          class="form__field__label error"
+          >Must be a valid email</label
+        >
+      </div>
     </div>
 
     <div class="form__field">
@@ -28,13 +36,26 @@
         formControlName="password"
         placeholder="Enter a Password"
       />
-      <label
-        *ngIf="loginForm.controls.password?.errors?.required"
-        class="form__field__label error"
-        >Password is Required</label
+      <div
+        *ngIf="
+          loginForm.controls['password'].invalid &&
+          (loginForm.controls['password'].dirty ||
+            loginForm.controls['password'].touched)
+        "
       >
+        <label
+          *ngIf="loginForm.get('password').hasError('required')"
+          class="form__field__label error"
+          >Password is Required</label
+        >
+        <label
+          *ngIf="loginForm.get('password').hasError('minlength')"
+          class="form__field__label error"
+          >Must be at least 12 characters long</label
+        >
+      </div>
     </div>
 
-    <button class="form__button">Submit</button>
+    <button class="form__button">Log In</button>
   </form>
 </section>

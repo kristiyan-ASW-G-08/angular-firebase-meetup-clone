@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyBENc2ZVfNVWHm8NQX3LJgYafHQrLw6sL4',
+    authDomain: 'angular-meetup-clone.firebaseapp.com',
+    databaseURL: 'https://angular-meetup-clone.firebaseio.com',
+    projectId: 'angular-meetup-clone',
+    storageBucket: 'angular-meetup-clone.appspot.com',
+    messagingSenderId: '950827159525',
+    appId: '1:950827159525:web:58fdc9605cbe6f291c690c',
+  },
 };
 
 /*

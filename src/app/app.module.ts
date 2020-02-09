@@ -11,9 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './core/home/home.component';
 import { LoginComponent } from './core/login/login.component';
 import { SignUpComponent } from './core/sign-up/sign-up.component';
-import { CenterSectionComponent } from './share/center-section/center-section.component';
 import { ErrorMessageComponent } from './shared/error-message/error-message.component';
-import { ConfirmPasswordDirective } from './validators/confirm-password/confirm-password.directive';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 
 @NgModule({
@@ -24,9 +22,7 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
     HomeComponent,
     LoginComponent,
     SignUpComponent,
-    CenterSectionComponent,
     ErrorMessageComponent,
-    ConfirmPasswordDirective,
     NotFoundComponent,
   ],
   imports: [
