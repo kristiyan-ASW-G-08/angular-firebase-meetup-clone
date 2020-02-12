@@ -14,10 +14,10 @@ import 'rxjs/Rx';
 })
 export class EventService {
   eventsCollection: AngularFirestoreCollection<Event>;
-  eventsDoc: AngularFirestoreDocument<Event>;
+  eventDoc: AngularFirestoreDocument<Event>;
   events: Observable<Event[]>;
   event: Observable<Event>;
-  constructor() {}
+  constructor(private fireStore: AngularFirestore) {}
 
   getEvents(): Observable<Event[]> {
     this.events = this.eventsCollection.snapshotChanges().pipe(
@@ -33,35 +33,34 @@ export class EventService {
     return this.events;
   }
 
-
-
-  
   addNewEvent(event: Event) {
     this.eventsCollection.add(event);
   }
 
   getEvent(id: string): Observable<Event> {
-    this.eventDoc = this.afs.doc<Event>(`events/${id}`);
-    this.event = this.eventDoc.snapshotChanges().map(action => {
-      if(action.payload.exists === false) {
-        return null;
-      } else {
-        const data = action.payload.data() as Event;
-        data.id = action.payload.id;
-        return data;
-      }
-    });
+    this.eventDoc = this.fireStore.doc<Event>(`events/${id}`);
+    this.event = this.eventDoc.snapshotChanges().pipe(
+      map(action => {
+        if (action.payload.exists === false) {
+          return null;
+        } else {
+          const data = action.payload.data() as Event;
+          data.id = action.payload.id;
+          return data;
+        }
+      }),
+    );
 
     return this.event;
   }
 
   updateEvent(event: Event) {
-    this.eventDoc = this.afs.doc(`events/${eventt.id}`);
+    this.eventDoc = this.fireStore.doc(`events/${event.id}`);
     this.eventDoc.update(event);
   }
 
   deleteEvent(event: Event) {
-    this.eventDoc = this.afs.doc(`events/${event.id}`);
+    this.eventDoc = this.fireStore.doc(`events/${event.id}`);
     this.eventDoc.delete();
   }
 }

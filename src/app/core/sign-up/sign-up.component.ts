@@ -7,6 +7,8 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 interface User {
   username: string;
   email: string;
@@ -27,9 +29,12 @@ export function confirmPassword({
 })
 export class SignUpComponent {
   signUpForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+  ) {
     this.signUpForm = formBuilder.group({
-      username: ['', [Validators.minLength(4), Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       passwords: formBuilder.group(
         {
@@ -40,7 +45,20 @@ export class SignUpComponent {
       ),
     });
   }
-  onSubmit() {
-    console.log(this.signUpForm);
+  async onSubmit() {
+    try {
+      const {
+        value: {
+          email,
+          passwords: { password },
+        },
+      } = this.signUpForm;
+      if (this.signUpForm.status === 'VALID') {
+        await this.authService.signUp(email, password);
+        this.router.navigate(['/']);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

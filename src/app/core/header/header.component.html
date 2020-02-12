@@ -13,12 +13,19 @@
           >Home</a
         >
       </li>
-      <li class="nav-list-link">
-        <a routerLink="login" routerLinkActive="active">Log In</a>
-      </li>
-      <li class="nav-list-link">
-        <a routerLink="sign-up" routerLinkActive="active">Sign Up</a>
-      </li>
+      <ng-container *ngIf="isAuth">
+        <li class="nav-list-link">
+          <a (click)="logout()">Log Out</a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="!isAuth">
+        <li class="nav-list-link">
+          <a routerLink="login" routerLinkActive="active">Log In</a>
+        </li>
+        <li class="nav-list-link">
+          <a routerLink="sign-up" routerLinkActive="active">Sign Up</a>
+        </li>
+      </ng-container>
     </ul>
   </nav>
   <button
@@ -44,21 +51,28 @@
         >Home</a
       >
     </li>
-    <li class="mobile-nav-list-link">
-      <a
-        (click)="toggleMobileNav()"
-        routerLink="login"
-        routerLinkActive="active"
-        >Log In</a
-      >
-    </li>
-    <li class="mobile-nav-list-link">
-      <a
-        (click)="toggleMobileNav()"
-        routerLink="sign-up"
-        routerLinkActive="active"
-        >Sign Up</a
-      >
-    </li>
+    <ng-container *ngIf="isAuth">
+      <li class="mobile-nav-list-link">
+        <a (click)="logout()">Log Out</a>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="!isAuth">
+      <li class="mobile-nav-list-link">
+        <a
+          (click)="toggleMobileNav()"
+          routerLink="login"
+          routerLinkActive="active"
+          >Log In</a
+        >
+      </li>
+      <li class="mobile-nav-list-link">
+        <a
+          (click)="toggleMobileNav()"
+          routerLink="sign-up"
+          routerLinkActive="active"
+          >Sign Up</a
+        >
+      </li>
+    </ng-container>
   </ul>
 </nav>
