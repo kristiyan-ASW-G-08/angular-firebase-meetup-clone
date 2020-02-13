@@ -2,63 +2,63 @@
 @import '../modules/mediaQueries';
 @import '../modules/mixins';
 
-.form-section {
-  height: 70vh;
-  width: 100vw;
-  @include center;
-}
+// .form-section {
+//   height: 70vh;
+//   width: 100vw;
+//   @include center;
+// }
 
-.form {
-  @include border;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  width: 90vw;
-  display: grid;
-  grid-gap: 1.5rem;
-  @include md {
-    width: 70vw;
-  }
-  @include lg {
-    width: 40rem;
-  }
-  &__field {
-    display: grid;
-    grid-gap: 0.4rem;
-    &__input {
-      @include border;
-      border-radius: 0.2rem;
-      font-size: 1rem;
-      padding: 0.5rem;
-      color: $dark;
-      &::placeholder {
-        color: lighten($dark, 40%);
-      }
-    }
-    &__label {
-      color: $dark;
-      font-weight: bold;
-      font-size: 0.9rem;
-      &.error {
-        color: $primary;
-      }
-    }
-  }
-  &__button {
-    border: none;
-    border-radius: 0.2rem;
-    background: $primary;
-    padding: 0.5rem;
-    color: $white;
-    font-weight: bold;
-    font-size: 0.8rem;
-    &:hover {
-      background: $white;
-      color: $primary;
-      border: solid 1px $primary;
-    }
-  }
-  .subgroup {
-    display: grid;
-    grid-gap: inherit;
-  }
-}
+// .form {
+//   @include border;
+//   border-radius: 0.5rem;
+//   padding: 1rem;
+//   width: 90vw;
+//   display: grid;
+//   grid-gap: 1.5rem;
+//   @include md {
+//     width: 70vw;
+//   }
+//   @include lg {
+//     width: 40rem;
+//   }
+//   &__field {
+//     display: grid;
+//     grid-gap: 0.4rem;
+//     &__input {
+//       @include border;
+//       border-radius: 0.2rem;
+//       font-size: 1rem;
+//       padding: 0.5rem;
+//       color: $dark;
+//       &::placeholder {
+//         color: lighten($dark, 40%);
+//       }
+//     }
+//     &__label {
+//       color: $dark;
+//       font-weight: bold;
+//       font-size: 0.9rem;
+//       &.error {
+//         color: $primary;
+//       }
+//     }
+//   }
+//   &__button {
+//     border: none;
+//     border-radius: 0.2rem;
+//     background: $primary;
+//     padding: 0.5rem;
+//     color: $white;
+//     font-weight: bold;
+//     font-size: 0.8rem;
+//     &:hover {
+//       background: $white;
+//       color: $primary;
+//       border: solid 1px $primary;
+//     }
+//   }
+//   .subgroup {
+//     display: grid;
+//     grid-gap: inherit;
+//   }
+// }

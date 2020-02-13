@@ -9,6 +9,8 @@ import {
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+
+//someValidPassword10
 interface User {
   username: string;
   email: string;
@@ -25,7 +27,6 @@ export function confirmPassword({
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['../../../styles/partials/form.scss'],
 })
 export class SignUpComponent {
   signUpForm: FormGroup;

@@ -17,6 +17,11 @@
         <li class="nav-list-link">
           <a (click)="logout()">Log Out</a>
         </li>
+        <li class="nav-list-link">
+          <a routerLink="create/event" routerLinkActive="active"
+            >Create Event</a
+          >
+        </li>
       </ng-container>
       <ng-container *ngIf="!isAuth">
         <li class="nav-list-link">
@@ -54,6 +59,9 @@
     <ng-container *ngIf="isAuth">
       <li class="mobile-nav-list-link">
         <a (click)="logout()">Log Out</a>
+      </li>
+      <li class="mobile-nav-list-link">
+        <a routerLink="create/event" routerLinkActive="active">Create Event</a>
       </li>
     </ng-container>
     <ng-container *ngIf="!isAuth">

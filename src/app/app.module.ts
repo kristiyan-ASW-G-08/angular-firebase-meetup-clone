@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
+import { EventFormComponent } from './core/event-form/event-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthService } from './services/auth.service';
     SignUpComponent,
     ErrorMessageComponent,
     NotFoundComponent,
+    EventFormComponent,
   ],
   imports: [
     BrowserModule,

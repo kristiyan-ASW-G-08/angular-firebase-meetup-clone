@@ -17,7 +17,9 @@ export class EventService {
   eventDoc: AngularFirestoreDocument<Event>;
   events: Observable<Event[]>;
   event: Observable<Event>;
-  constructor(private fireStore: AngularFirestore) {}
+  constructor(private fireStore: AngularFirestore) {
+    this.eventsCollection = this.fireStore.collection('events');
+  }
 
   getEvents(): Observable<Event[]> {
     this.events = this.eventsCollection.snapshotChanges().pipe(

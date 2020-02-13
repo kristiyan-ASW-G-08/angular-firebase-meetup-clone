@@ -1,0 +1,106 @@
+<section class="form-section">
+  <form class="form" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div class="form__field">
+      <label class="form__field__label">Name</label>
+      <input
+        class="form__field__input"
+        type="text"
+        formControlName="name"
+        placeholder="Enter a name"
+      />
+      <div
+        *ngIf="
+          eventForm.controls['name'].invalid &&
+          (eventForm.controls['name'].dirty ||
+            eventForm.controls['name'].touched)
+        "
+      >
+        <label
+          *ngIf="eventForm.get('name').hasError('required')"
+          class="form__field__label error"
+          >Name is Required</label
+        >
+      </div>
+    </div>
+
+    <div class="form__field">
+      <label class="form__field__label">Description</label>
+      <input
+        class="form__field__input"
+        type="text"
+        formControlName="description"
+        placeholder="Enter a description"
+      />
+      <div
+        *ngIf="
+          eventForm.controls['description'].invalid &&
+          (eventForm.controls['description'].dirty ||
+            eventForm.controls['description'].touched)
+        "
+      >
+        <label
+          *ngIf="eventForm.get('description').hasError('required')"
+          class="form__field__label error"
+          >Description is Required</label
+        >
+        <label
+          *ngIf="eventForm.get('description').hasError('minlength')"
+          class="form__field__label error"
+          >Description must be at least 10 characters long</label
+        >
+      </div>
+    </div>
+
+    <div class="form__field">
+      <label class="form__field__label">Location</label>
+      <input
+        class="form__field__input"
+        type="text"
+        formControlName="location"
+        placeholder="Enter a location"
+      />
+      <div
+        *ngIf="
+          eventForm.controls['location'].invalid &&
+          (eventForm.controls['location'].dirty ||
+            eventForm.controls['location'].touched)
+        "
+      >
+        <label
+          *ngIf="eventForm.get('location').hasError('required')"
+          class="form__field__label error"
+          >Location is Required</label
+        >
+      </div>
+    </div>
+
+    <div class="form__field">
+      <label class="form__field__label">Category</label>
+      <select
+        formControlName="category"
+        class="form__field__input"
+        placeholder="Select a category"
+      >
+        <option value="tech" selected>tech</option>
+        <option value="art">art</option>
+        <option value="sports">sports</option>
+        <option value="health">health</option>
+        <option value="culture">culture</option>
+      </select>
+      <div
+        *ngIf="
+          eventForm.controls['category'].invalid &&
+          (eventForm.controls['category'].dirty ||
+            eventForm.controls['category'].touched)
+        "
+      >
+        <label
+          *ngIf="eventForm.get('category').hasError('required')"
+          class="form__field__label error"
+          >Category is Required</label
+        >
+      </div>
+    </div>
+    <button class="form__button">Create Event</button>
+  </form>
+</section>
