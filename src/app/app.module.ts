@@ -20,6 +20,7 @@ import { environment } from 'src/environments/environment';
 import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
 import { EventFormComponent } from './core/event-form/event-form.component';
+import { EventCardComponent } from './shared/event-card/event-card.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EventFormComponent } from './core/event-form/event-form.component';
     ErrorMessageComponent,
     NotFoundComponent,
     EventFormComponent,
+    EventCardComponent,
   ],
   imports: [
     BrowserModule,

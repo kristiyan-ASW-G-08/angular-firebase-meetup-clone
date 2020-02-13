@@ -39,7 +39,11 @@ export class EventFormComponent {
   async onSubmit() {
     try {
       if (this.eventForm.status === 'VALID') {
-        const event = { ...this.eventForm.value, date: new Date() };
+        const event = {
+          ...this.eventForm.value,
+          date: Date.now(),
+          attendees: 0,
+        };
         this.eventService.addNewEvent(event);
         this.router.navigate([`/`]);
       }

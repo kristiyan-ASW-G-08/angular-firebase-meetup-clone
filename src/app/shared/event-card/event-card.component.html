@@ -1,0 +1,12 @@
+<article class="event">
+  <time class="event__date" datetime="{ event.date }">{{
+    event.date | date
+  }}</time>
+  <h4 class="event__title">{{ event.name }}</h4>
+  <p class="event__description">{{ event.description }}</p>
+  <div class="event__attendance">
+    <p>{{ event.attendees }} Attendees</p>
+
+    <button>Attend</button>
+  </div>
+</article>

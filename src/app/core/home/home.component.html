@@ -1,1 +1,12 @@
 <app-hero></app-hero>
+<section class="section">
+  <h3 class="title">Events</h3>
+  <p class="subtitle">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam culpa nostrum
+    doloribus at ipsa commodi.
+  </p>
+  <div class="events-container" role="feed">
+    <app-event-card *ngFor="let event of events" [event]="event">
+    </app-event-card>
+  </div>
+</section>
