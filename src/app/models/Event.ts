@@ -5,5 +5,6 @@ export default interface Event {
   attendees: number;
   location: string;
   date: string;
+  time: string;
   id: string;
 }

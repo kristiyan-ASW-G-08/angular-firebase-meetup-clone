@@ -101,6 +101,44 @@
         >
       </div>
     </div>
+
+    <div class="form__field">
+      <label class="form__field__label">Date</label>
+      <input type="date" formControlName="date" class="form__field__input" />
+
+      <div
+        *ngIf="
+          eventForm.controls['date'].invalid &&
+          (eventForm.controls['date'].dirty ||
+            eventForm.controls['date'].touched)
+        "
+      >
+        <label
+          *ngIf="eventForm.get('date').hasError('required')"
+          class="form__field__label error"
+          >Date is Required</label
+        >
+      </div>
+    </div>
+
+    <div class="form__field">
+      <label class="form__field__label">Time</label>
+      <input type="time" formControlName="time" class="form__field__input" />
+
+      <div
+        *ngIf="
+          eventForm.controls['time'].invalid &&
+          (eventForm.controls['time'].dirty ||
+            eventForm.controls['time'].touched)
+        "
+      >
+        <label
+          *ngIf="eventForm.get('time').hasError('required')"
+          class="form__field__label error"
+          >Time is Required</label
+        >
+      </div>
+    </div>
     <button class="form__button">Create Event</button>
   </form>
 </section>

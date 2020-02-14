@@ -34,17 +34,17 @@ export class EventFormComponent {
       category: ['', [Validators.required]],
       description: ['', [Validators.required, Validators.minLength(10)]],
       location: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      time: ['', [Validators.required]],
     });
   }
   async onSubmit() {
     try {
       if (this.eventForm.status === 'VALID') {
-        const event = {
+        this.eventService.addNewEvent({
           ...this.eventForm.value,
-          date: Date.now(),
           attendees: 0,
-        };
-        this.eventService.addNewEvent(event);
+        });
         this.router.navigate([`/`]);
       }
     } catch (err) {

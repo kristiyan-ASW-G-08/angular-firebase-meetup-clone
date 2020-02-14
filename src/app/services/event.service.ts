@@ -41,17 +41,20 @@ export class EventService {
 
   getEvent(id: string): Observable<Event> {
     this.eventDoc = this.fireStore.doc<Event>(`events/${id}`);
-    this.event = this.eventDoc.snapshotChanges().pipe(
-      map(action => {
-        if (action.payload.exists === false) {
-          return null;
-        } else {
-          const data = action.payload.data() as Event;
-          data.id = action.payload.id;
-          return data;
-        }
-      }),
-    );
+    this.event = this.eventDoc
+      .snapshotChanges()
+
+      .pipe(
+        map(action => {
+          if (action.payload.exists === false) {
+            return null;
+          } else {
+            const data = action.payload.data() as Event;
+            data.id = action.payload.id;
+            return data;
+          }
+        }),
+      );
 
     return this.event;
   }
