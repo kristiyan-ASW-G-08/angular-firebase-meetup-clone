@@ -1,11 +1,7 @@
-export default interface Event {
+export default interface Group {
   name: string;
   category: 'tech' | 'art' | 'sports' | 'health' | 'culture';
   description: string;
-  group: string;
-  attendees: number;
   location: string;
-  date: string;
-  time: string;
-  id: string;
+  organizer: string;
 }

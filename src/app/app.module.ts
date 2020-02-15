@@ -21,6 +21,7 @@ import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
 import { EventFormComponent } from './core/event-form/event-form.component';
 import { EventCardComponent } from './shared/event-card/event-card.component';
+import { EventsComponent } from './core/events/events.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EventCardComponent } from './shared/event-card/event-card.component';
     NotFoundComponent,
     EventFormComponent,
     EventCardComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,

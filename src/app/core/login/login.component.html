@@ -1,13 +1,15 @@
-<section class="form-section">
-  <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form__field">
-      <label class="form__field__label">Email</label>
-      <input
-        class="form__field__input"
-        type="email"
-        formControlName="email"
-        placeholder="Enter an email address"
-      />
+<section class="section container is-centered">
+  <form class="section" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input
+          class="input"
+          type="email"
+          formControlName="email"
+          placeholder="Enter an email address"
+        />
+      </div>
       <div
         *ngIf="
           loginForm.controls['email'].invalid &&
@@ -15,27 +17,31 @@
             loginForm.controls['email'].touched)
         "
       >
-        <label
+        <p
           *ngIf="loginForm.get('email').hasError('required')"
-          class="form__field__label error"
-          >Email is Required</label
+          class="help is-danger"
         >
-        <label
+          Email is Required
+        </p>
+        <p
           *ngIf="loginForm.get('email').hasError('email')"
-          class="form__field__label error"
-          >Must be a valid email</label
+          class="help is-danger"
         >
+          Must be a valid email
+        </p>
       </div>
     </div>
 
-    <div class="form__field">
-      <label class="form__field__label">Password</label>
-      <input
-        class="form__field__input"
-        type="password"
-        formControlName="password"
-        placeholder="Enter a Password"
-      />
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input
+          class="input"
+          type="password"
+          formControlName="password"
+          placeholder="Enter a Password"
+        />
+      </div>
       <div
         *ngIf="
           loginForm.controls['password'].invalid &&
@@ -43,19 +49,25 @@
             loginForm.controls['password'].touched)
         "
       >
-        <label
+        <p
           *ngIf="loginForm.get('password').hasError('required')"
-          class="form__field__label error"
-          >Password is Required</label
+          class="help is-danger"
         >
-        <label
+          Password is Required
+        </p>
+        <p
           *ngIf="loginForm.get('password').hasError('minlength')"
-          class="form__field__label error"
-          >Must be at least 12 characters long</label
+          class="help is-danger"
         >
+          Must be at least 12 characters long
+        </p>
       </div>
     </div>
 
-    <button class="form__button">Log In</button>
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+    </div>
   </form>
 </section>

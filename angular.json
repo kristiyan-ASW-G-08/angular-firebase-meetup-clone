@@ -20,7 +20,10 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss","src/styles/partials/form.scss"],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/bulma/css/bulma.min.css"
+            ],
             "scripts": []
           },
           "configurations": {

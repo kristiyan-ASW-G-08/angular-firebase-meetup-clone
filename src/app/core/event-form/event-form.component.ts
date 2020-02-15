@@ -11,11 +11,6 @@ import { Router } from '@angular/router';
 import { EventService } from 'src/app/services/event.service';
 
 const categories = ['tech', 'art', 'sports', 'health', 'culture'];
-export function isCorrectCategory({
-  value,
-}: AbstractControl): ValidationErrors | null {
-  return categories.includes(value) ? null : { isCorrectCategory: true };
-}
 
 @Component({
   selector: 'app-event-form',
@@ -25,7 +20,6 @@ export class EventFormComponent {
   eventForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private eventService: EventService,
     private router: Router,
   ) {

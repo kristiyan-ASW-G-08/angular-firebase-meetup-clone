@@ -1,12 +1,36 @@
-<app-hero></app-hero>
-<section class="section">
-  <h3 class="title">Events</h3>
-  <p class="subtitle">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam culpa nostrum
-    doloribus at ipsa commodi.
-  </p>
-  <div class="events-container" role="feed">
-    <app-event-card *ngFor="let event of events" [event]="event">
-    </app-event-card>
+<section class="hero is-info is-medium hero-background">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Find you next Adventure
+      </h1>
+      <h2 class="subtitle">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptatum
+        aliquam sequi neque voluptas corrupti.
+        <div class="buttons buttons-container ">
+          <a class="button is-link">Join MeetupC</a>
+        </div>
+      </h2>
+    </div>
   </div>
+</section>
+<section class="section">
+  <div class="content">
+    <h3 class="is-large">Events</h3>
+    <h4 class="is-small">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus rem
+      cupiditate illum voluptates, necessitatibus velit?
+    </h4>
+  </div>
+  <section role="feed" class="columns">
+    <app-event-card
+      *ngFor="let event of events"
+      [event]="event"
+      class="column is-one-quarter is-flex"
+    >
+    </app-event-card>
+  </section>
+  <a routerLink="events" routerLinkActive="is-active" class="is-size-6">
+    Find you next Adventure
+  </a>
 </section>

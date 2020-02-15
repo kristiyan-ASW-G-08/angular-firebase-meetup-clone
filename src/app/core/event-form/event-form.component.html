@@ -1,13 +1,15 @@
-<section class="form-section">
-  <form class="form" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-    <div class="form__field">
-      <label class="form__field__label">Name</label>
-      <input
-        class="form__field__input"
-        type="text"
-        formControlName="name"
-        placeholder="Enter a name"
-      />
+<section class="section container is-centered">
+  <form class="section" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          formControlName="name"
+          placeholder="Enter a name"
+        />
+      </div>
       <div
         *ngIf="
           eventForm.controls['name'].invalid &&
@@ -15,22 +17,25 @@
             eventForm.controls['name'].touched)
         "
       >
-        <label
+        <p
           *ngIf="eventForm.get('name').hasError('required')"
-          class="form__field__label error"
-          >Name is Required</label
+          class="help is-danger"
         >
+          Name is Required
+        </p>
       </div>
     </div>
 
-    <div class="form__field">
-      <label class="form__field__label">Description</label>
-      <input
-        class="form__field__input"
-        type="text"
-        formControlName="description"
-        placeholder="Enter a description"
-      />
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          formControlName="description"
+          placeholder="Enter a description"
+        />
+      </div>
       <div
         *ngIf="
           eventForm.controls['description'].invalid &&
@@ -38,27 +43,31 @@
             eventForm.controls['description'].touched)
         "
       >
-        <label
+        <p
           *ngIf="eventForm.get('description').hasError('required')"
-          class="form__field__label error"
-          >Description is Required</label
+          class="help is-danger"
         >
-        <label
+          Description is Required
+        </p>
+        <p
           *ngIf="eventForm.get('description').hasError('minlength')"
-          class="form__field__label error"
-          >Description must be at least 10 characters long</label
+          class="help is-danger"
         >
+          Description must be at least 10 characters long
+        </p>
       </div>
     </div>
 
-    <div class="form__field">
-      <label class="form__field__label">Location</label>
-      <input
-        class="form__field__input"
-        type="text"
-        formControlName="location"
-        placeholder="Enter a location"
-      />
+    <div class="field">
+      <label class="label">Location</label>
+      <div class="control">
+        <input
+          class="input"
+          type="text"
+          formControlName="location"
+          placeholder="Enter a location"
+        />
+      </div>
       <div
         *ngIf="
           eventForm.controls['location'].invalid &&
@@ -66,27 +75,28 @@
             eventForm.controls['location'].touched)
         "
       >
-        <label
+        <p
           *ngIf="eventForm.get('location').hasError('required')"
-          class="form__field__label error"
-          >Location is Required</label
+          class="help is-danger"
         >
+          Location is Required
+        </p>
       </div>
     </div>
 
-    <div class="form__field">
-      <label class="form__field__label">Category</label>
-      <select
-        formControlName="category"
-        class="form__field__input"
-        placeholder="Select a category"
-      >
-        <option value="tech" selected>tech</option>
-        <option value="art">art</option>
-        <option value="sports">sports</option>
-        <option value="health">health</option>
-        <option value="culture">culture</option>
-      </select>
+    <div class="field">
+      <label class="label">Category</label>
+      <div class="control">
+        <div class="select">
+          <select formControlName="category">
+            <option value="tech" selected>tech</option>
+            <option value="art">art</option>
+            <option value="sports">sports</option>
+            <option value="health">health</option>
+            <option value="culture">culture</option>
+          </select>
+        </div>
+      </div>
       <div
         *ngIf="
           eventForm.controls['category'].invalid &&
@@ -94,18 +104,20 @@
             eventForm.controls['category'].touched)
         "
       >
-        <label
+        <p
           *ngIf="eventForm.get('category').hasError('required')"
-          class="form__field__label error"
-          >Category is Required</label
+          class="help is-danger"
         >
+          Category is Required
+        </p>
       </div>
     </div>
 
-    <div class="form__field">
-      <label class="form__field__label">Date</label>
-      <input type="date" formControlName="date" class="form__field__input" />
-
+    <div class="field">
+      <label class="label">Date</label>
+      <div class="control">
+        <input class="input" type="date" formControlName="date" />
+      </div>
       <div
         *ngIf="
           eventForm.controls['date'].invalid &&
@@ -113,18 +125,20 @@
             eventForm.controls['date'].touched)
         "
       >
-        <label
+        <p
           *ngIf="eventForm.get('date').hasError('required')"
-          class="form__field__label error"
-          >Date is Required</label
+          class="help is-danger"
         >
+          Date is Required
+        </p>
       </div>
     </div>
 
-    <div class="form__field">
-      <label class="form__field__label">Time</label>
-      <input type="time" formControlName="time" class="form__field__input" />
-
+    <div class="field">
+      <label class="label">Time</label>
+      <div class="control">
+        <input type="time" formControlName="time" class="input" />
+      </div>
       <div
         *ngIf="
           eventForm.controls['time'].invalid &&
@@ -134,11 +148,16 @@
       >
         <label
           *ngIf="eventForm.get('time').hasError('required')"
-          class="form__field__label error"
+          class="help is-danger"
           >Time is Required</label
         >
       </div>
     </div>
-    <button class="form__button">Create Event</button>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+    </div>
   </form>
 </section>

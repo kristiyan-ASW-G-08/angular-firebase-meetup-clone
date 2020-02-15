@@ -31,6 +31,10 @@ export class LoginComponent {
         this.router.navigate(['/']);
       }
     } catch (err) {
+      const errors = {
+        'auth/user-not-found': '',
+        'auth/wrong-password': '',
+      };
       console.log(err);
     }
   }
