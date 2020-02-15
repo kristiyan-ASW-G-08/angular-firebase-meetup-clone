@@ -5,8 +5,23 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  categories: string[] = [
+    'outdoors & adventure',
+    'tech',
+    'art',
+    'sports & fitness',
+    'health',
+    'culture',
+    'family',
+    'learning',
+    'photography',
+    'music',
+    'food & drink',
+    'film',
+  ];
   events: Event[];
   constructor(private eventService: EventService) {
     this.eventService.getEvents().subscribe(events => {

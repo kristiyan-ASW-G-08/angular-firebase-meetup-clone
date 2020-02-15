@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 //someValidPassword10
 interface User {
@@ -34,6 +35,7 @@ export class SignUpComponent {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private flashMessage: FlashMessagesService,
   ) {
     this.signUpForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -59,7 +61,18 @@ export class SignUpComponent {
         this.router.navigate(['/']);
       }
     } catch (err) {
-      console.log(err);
+      const errors = {
+        'auth/email-already-in-use': 'Email is already in use',
+      };
+      this.flashMessage.show(
+        errors[err.code]
+          ? errors[err.code]
+          : 'Something went wrong. Try again.',
+        {
+          cssClass: 'message is-danger',
+          timeout: 4000,
+        },
+      );
     }
   }
 }

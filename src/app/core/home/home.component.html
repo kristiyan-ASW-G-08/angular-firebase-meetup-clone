@@ -16,6 +16,20 @@
 </section>
 <section class="section">
   <div class="content">
+    <h3 class="is-large">Categories</h3>
+  </div>
+
+  <div class="columns is-mobile categories">
+    <app-category
+      class="column"
+      *ngFor="let category of categories"
+      [category]="category"
+    >
+    </app-category>
+  </div>
+</section>
+<section class="section">
+  <div class="content">
     <h3 class="is-large">Events</h3>
     <h4 class="is-small">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus rem
@@ -31,6 +45,6 @@
     </app-event-card>
   </section>
   <a routerLink="events" routerLinkActive="is-active" class="is-size-6">
-    Find you next Adventure
+    See All
   </a>
 </section>

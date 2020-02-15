@@ -9,8 +9,7 @@ import {
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { EventService } from 'src/app/services/event.service';
-
-const categories = ['tech', 'art', 'sports', 'health', 'culture'];
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-event-form',
@@ -22,6 +21,7 @@ export class EventFormComponent {
     private formBuilder: FormBuilder,
     private eventService: EventService,
     private router: Router,
+    private flashMessage: FlashMessagesService,
   ) {
     this.eventForm = formBuilder.group({
       name: ['', [Validators.required]],
@@ -42,7 +42,10 @@ export class EventFormComponent {
         this.router.navigate([`/`]);
       }
     } catch (err) {
-      console.log(err);
+      this.flashMessage.show('Something went wrong. Try again.', {
+        cssClass: 'message is-danger',
+        timeout: 4000,
+      });
     }
   }
 }

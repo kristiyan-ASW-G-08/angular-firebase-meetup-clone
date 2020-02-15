@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
-
+import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeroComponent } from './core/hero/hero.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,8 @@ import { AuthService } from './services/auth.service';
 import { EventFormComponent } from './core/event-form/event-form.component';
 import { EventCardComponent } from './shared/event-card/event-card.component';
 import { EventsComponent } from './core/events/events.component';
+import { CategoryComponent } from './shared/category/category.component';
+import { CategoryPageComponent } from './core/category-page/category-page.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { EventsComponent } from './core/events/events.component';
     EventFormComponent,
     EventCardComponent,
     EventsComponent,
+    CategoryComponent,
+    CategoryPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ import { EventsComponent } from './core/events/events.component';
     ),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    FlashMessagesModule.forRoot(),
   ],
   providers: [EventService, AuthService],
   bootstrap: [AppComponent],

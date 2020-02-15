@@ -1,0 +1,14 @@
+<section class="section">
+  <div class="content">
+    <h3 class="is-large">{{ category }}</h3>
+  </div>
+  <h4 class="title is-5" *ngIf="!events.length">No events found</h4>
+  <section role="feed" class="columns section ">
+    <app-event-card
+      *ngFor="let event of events"
+      [event]="event"
+      class="column is-one-quarter"
+    >
+    </app-event-card>
+  </section>
+</section>

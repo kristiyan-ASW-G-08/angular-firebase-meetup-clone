@@ -1861,6 +1861,11 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
+angular2-flash-messages@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/angular2-flash-messages/-/angular2-flash-messages-3.0.1.tgz#7770dfaed58525205b43fb4783c669573be583af"
+  integrity sha512-0UVInmSyCi1nlsGspIcuxjZL4hIdPaMOAZInOwHZOeEY0fB3mUexa4v7nmpbuWUuNmhohI2psI6SjqWWB5XqjQ==
+
 ansi-colors@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"

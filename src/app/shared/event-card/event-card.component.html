@@ -8,10 +8,16 @@
 
     <div class="content">
       {{ event.description }}
-
       <p class="has-text-link">{{ event.attendees }} Attendees</p>
-      <br />
-      <time datetime="{event.date }">{{ event.date | date }}</time>
+      <div class="columns">
+        <div class="column is-8">
+          <time datetime="{event.date }">{{ event.date | date }}</time>
+        </div>
+        <div class="column is-1"></div>
+        <div class="column is-1">
+          <a class="button is-small is-link">Attend</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
