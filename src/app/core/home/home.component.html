@@ -30,21 +30,42 @@
 </section>
 <section class="section">
   <div class="content">
-    <h3 class="is-large">Events</h3>
+    <h3 class="is-large">Groups</h3>
     <h4 class="is-small">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus rem
       cupiditate illum voluptates, necessitatibus velit?
     </h4>
   </div>
   <section role="feed" class="columns">
+    <app-group-card
+      *ngFor="let group of groups"
+      [group]="group"
+      class="column is-one-quarter is-flex"
+    >
+    </app-group-card>
+  </section>
+  <a routerLink="groups" routerLinkActive="is-active" class="button">
+    See All
+  </a>
+</section>
+
+<section class="section">
+  <div class="content">
+    <h3 class="is-large">Events</h3>
+    <h4 class="is-small">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus rem
+      cupiditate illum voluptates, necessitatibus velit?
+    </h4>
+  </div>
+  <div class="columns">
     <app-event-card
       *ngFor="let event of events"
       [event]="event"
-      class="column is-one-quarter is-flex"
+      class="column is-one-quarter"
     >
     </app-event-card>
-  </section>
-  <a routerLink="events" routerLinkActive="is-active" class="is-size-6">
+  </div>
+  <a routerLink="events" routerLinkActive="is-active" class="button">
     See All
   </a>
 </section>

@@ -26,6 +26,9 @@ import { CategoryComponent } from './shared/category/category.component';
 import { CategoryPageComponent } from './core/category-page/category-page.component';
 import { GroupFormComponent } from './core/group-form/group-form.component';
 import { GroupService } from './services/group.service';
+import { GroupCardComponent } from './shared/group-card/group-card.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { GroupsComponent } from './core/groups/groups.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { GroupService } from './services/group.service';
     CategoryComponent,
     CategoryPageComponent,
     GroupFormComponent,
+    GroupCardComponent,
+    FooterComponent,
+    GroupsComponent,
   ],
   imports: [
     BrowserModule,
