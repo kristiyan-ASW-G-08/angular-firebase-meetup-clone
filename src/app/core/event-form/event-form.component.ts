@@ -10,13 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { EventService } from 'src/app/services/event.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-
+import categories from '../../shared/categories';
 @Component({
   selector: 'app-event-form',
   templateUrl: './event-form.component.html',
 })
 export class EventFormComponent {
   eventForm: FormGroup;
+  categories = categories;
   constructor(
     private formBuilder: FormBuilder,
     private eventService: EventService,

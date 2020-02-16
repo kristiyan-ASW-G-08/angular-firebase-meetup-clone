@@ -7,11 +7,13 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { EventFormComponent } from './core/event-form/event-form.component';
 import { EventsComponent } from './core/events/events.component';
 import { CategoryPageComponent } from './core/category-page/category-page.component';
+import { GroupFormComponent } from './core/group-form/group-form.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'create/event', component: EventFormComponent },
+  { path: 'create/group', component: GroupFormComponent },
   { path: 'events', component: EventsComponent },
   {
     path: 'categories/:category',

@@ -1,5 +1,5 @@
 <section class="section container is-centered">
-  <form class="section" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+  <form class="section" [formGroup]="groupForm" (ngSubmit)="onSubmit()">
     <div class="field">
       <label class="label">Name</label>
       <div class="control">
@@ -7,18 +7,18 @@
           class="input"
           type="text"
           formControlName="name"
-          placeholder="Enter a name"
+          placeholder="Enter a name "
         />
       </div>
       <div
         *ngIf="
-          eventForm.controls['name'].invalid &&
-          (eventForm.controls['name'].dirty ||
-            eventForm.controls['name'].touched)
+          groupForm.controls['name'].invalid &&
+          (groupForm.controls['name'].dirty ||
+            groupForm.controls['name'].touched)
         "
       >
         <p
-          *ngIf="eventForm.get('name').hasError('required')"
+          *ngIf="groupForm.get('name').hasError('required')"
           class="help is-danger"
         >
           Name is Required
@@ -38,22 +38,22 @@
       </div>
       <div
         *ngIf="
-          eventForm.controls['description'].invalid &&
-          (eventForm.controls['description'].dirty ||
-            eventForm.controls['description'].touched)
+          groupForm.controls['description'].invalid &&
+          (groupForm.controls['description'].dirty ||
+            groupForm.controls['description'].touched)
         "
       >
         <p
-          *ngIf="eventForm.get('description').hasError('required')"
+          *ngIf="groupForm.get('description').hasError('required')"
           class="help is-danger"
         >
           Description is Required
         </p>
         <p
-          *ngIf="eventForm.get('description').hasError('minlength')"
+          *ngIf="groupForm.get('description').hasError('minlength')"
           class="help is-danger"
         >
-          Description must be at least 10 characters long
+          Too short
         </p>
       </div>
     </div>
@@ -70,13 +70,13 @@
       </div>
       <div
         *ngIf="
-          eventForm.controls['location'].invalid &&
-          (eventForm.controls['location'].dirty ||
-            eventForm.controls['location'].touched)
+          groupForm.controls['location'].invalid &&
+          (groupForm.controls['location'].dirty ||
+            groupForm.controls['location'].touched)
         "
       >
         <p
-          *ngIf="eventForm.get('location').hasError('required')"
+          *ngIf="groupForm.get('location').hasError('required')"
           class="help is-danger"
         >
           Location is Required
@@ -95,58 +95,48 @@
       </div>
       <div
         *ngIf="
-          eventForm.controls['category'].invalid &&
-          (eventForm.controls['category'].dirty ||
-            eventForm.controls['category'].touched)
+          groupForm.controls['category'].invalid &&
+          (groupForm.controls['category'].dirty ||
+            groupForm.controls['category'].touched)
         "
       >
         <p
-          *ngIf="eventForm.get('category').hasError('required')"
+          *ngIf="groupForm.get('category').hasError('required')"
           class="help is-danger"
         >
           Category is Required
         </p>
       </div>
     </div>
-
     <div class="field">
-      <label class="label">Date</label>
+      <label class="label">Image Url</label>
       <div class="control">
-        <input class="input" type="date" formControlName="date" />
+        <input
+          class="input"
+          type="url"
+          formControlName="imageUrl"
+          placeholder="Enter a imageUrl"
+        />
       </div>
       <div
         *ngIf="
-          eventForm.controls['date'].invalid &&
-          (eventForm.controls['date'].dirty ||
-            eventForm.controls['date'].touched)
+          groupForm.controls['imageUrl'].invalid &&
+          (groupForm.controls['imageUrl'].dirty ||
+            groupForm.controls['imageUrl'].touched)
         "
       >
         <p
-          *ngIf="eventForm.get('date').hasError('required')"
+          *ngIf="groupForm.get('imageUrl').hasError('required')"
           class="help is-danger"
         >
-          Date is Required
+          Image Url is Required
         </p>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label">Time</label>
-      <div class="control">
-        <input type="time" formControlName="time" class="input" />
-      </div>
-      <div
-        *ngIf="
-          eventForm.controls['time'].invalid &&
-          (eventForm.controls['time'].dirty ||
-            eventForm.controls['time'].touched)
-        "
-      >
-        <label
-          *ngIf="eventForm.get('time').hasError('required')"
+        <p
+          *ngIf="groupForm.get('imageUrl').hasError('pattern')"
           class="help is-danger"
-          >Time is Required</label
         >
+          Image Url must be a valid url
+        </p>
       </div>
     </div>
 

@@ -24,6 +24,8 @@ import { EventCardComponent } from './shared/event-card/event-card.component';
 import { EventsComponent } from './core/events/events.component';
 import { CategoryComponent } from './shared/category/category.component';
 import { CategoryPageComponent } from './core/category-page/category-page.component';
+import { GroupFormComponent } from './core/group-form/group-form.component';
+import { GroupService } from './services/group.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { CategoryPageComponent } from './core/category-page/category-page.compon
     EventsComponent,
     CategoryComponent,
     CategoryPageComponent,
+    GroupFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,7 @@ import { CategoryPageComponent } from './core/category-page/category-page.compon
     AngularFireAuthModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [EventService, AuthService],
+  providers: [EventService, AuthService, GroupService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
