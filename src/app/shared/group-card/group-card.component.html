@@ -15,7 +15,9 @@
 
     <div class="content">
       {{ group.description }}
-      <a href="">Learn More</a>
+      <a routerLink="groups/{{ group.id }}" routerLinkActive="is-active"
+        >Learn More</a
+      >
     </div>
   </div>
 </div>

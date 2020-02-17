@@ -9,17 +9,22 @@ import { EventsComponent } from './core/events/events.component';
 import { CategoryPageComponent } from './core/category-page/category-page.component';
 import { GroupFormComponent } from './core/group-form/group-form.component';
 import { GroupsComponent } from './core/groups/groups.component';
+import { GroupPageComponent } from './core/group-page/group-page.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'create/event', component: EventFormComponent },
+  { path: 'groups/:groupId/event', component: EventFormComponent },
   { path: 'create/group', component: GroupFormComponent },
   { path: 'events', component: EventsComponent },
   { path: 'groups', component: GroupsComponent },
   {
     path: 'categories/:category',
     component: CategoryPageComponent,
+  },
+  {
+    path: 'groups/:groupId',
+    component: GroupPageComponent,
   },
   { path: '**', component: NotFoundComponent },
 ];

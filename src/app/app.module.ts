@@ -29,6 +29,7 @@ import { GroupService } from './services/group.service';
 import { GroupCardComponent } from './shared/group-card/group-card.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { GroupsComponent } from './core/groups/groups.component';
+import { GroupPageComponent } from './core/group-page/group-page.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { GroupsComponent } from './core/groups/groups.component';
     GroupCardComponent,
     FooterComponent,
     GroupsComponent,
+    GroupPageComponent,
   ],
   imports: [
     BrowserModule,

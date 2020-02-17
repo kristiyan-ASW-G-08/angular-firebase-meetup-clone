@@ -1,0 +1,70 @@
+<div *ngIf="group">
+  <section
+    class="hero is-medium is-primary is-bold"
+    [style.background]="'url(' + imageUrl + ') '"
+    style="background-size:contain;"
+  >
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          {{ group.name }}
+        </h1>
+        <h1 class="subtitle">
+          {{ group.description }}
+        </h1>
+      </div>
+    </div>
+  </section>
+  <div class="tabs is-centered">
+    <ul>
+      <li
+        [class.is-active]="activeTab === 'information'"
+        (click)="activateTab('information')"
+      >
+        <a>Information</a>
+      </li>
+      <li
+        [class.is-active]="activeTab === 'events'"
+        (click)="activateTab('events')"
+      >
+        <a>Events</a>
+      </li>
+      <li
+        [class.is-active]="activeTab === 'comments'"
+        (click)="activateTab('comments')"
+      >
+        <a>Comments</a>
+      </li>
+    </ul>
+  </div>
+  <section class="section" *ngIf="activeTab === 'information'">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <p>Category: {{ group.category }}</p>
+          <p>Location: {{ group.location }}</p>
+          <p>Members: {{ group.members }}</p>
+        </div>
+      </div>
+      <footer class="card-footer" *ngIf="isOrganizer">
+        <a
+          routerLink="event"
+          routerLinkActive="is-active"
+          class="card-footer-item"
+          >Create Event</a
+        >
+      </footer>
+    </div>
+  </section>
+
+  <section class="section" *ngIf="activeTab === 'information'">
+    <div class="columns">
+      <app-event-card
+        *ngFor="let event of events"
+        [event]="event"
+        class="column is-one-quarter"
+      >
+      </app-event-card>
+    </div>
+  </section>
+</div>
