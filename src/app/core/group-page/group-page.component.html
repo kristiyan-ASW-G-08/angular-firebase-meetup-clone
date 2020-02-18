@@ -57,7 +57,7 @@
     </div>
   </section>
 
-  <section class="section" *ngIf="activeTab === 'information'">
+  <section class="section" *ngIf="activeTab === 'events'">
     <div class="columns">
       <app-event-card
         *ngFor="let event of events"
@@ -65,6 +65,13 @@
         class="column is-one-quarter"
       >
       </app-event-card>
+    </div>
+  </section>
+
+  <section class="section" *ngIf="activeTab === 'comments'">
+    <div class="container" style="text-align: center;">
+      <h2 *ngIf="!isAuth" class="title is-4">Log in to comment</h2>
+      <a *ngIf="isAuth" class="button">Comment</a>
     </div>
   </section>
 </div>

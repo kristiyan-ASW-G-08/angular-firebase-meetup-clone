@@ -12,6 +12,7 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class GroupPageComponent implements OnInit {
   isOrganizer: boolean = false;
+  isAuth: boolean = false;
   group: Group;
   imageUrl: string;
   activeTab: 'information' | 'events' | 'comments' = 'information';
@@ -30,12 +31,14 @@ export class GroupPageComponent implements OnInit {
       this.authService.getAuth().subscribe(auth => {
         if (auth) {
           this.isOrganizer = this.group.organizer === auth.uid;
+          this.isAuth = true;
         }
       });
 
       this.eventsService.getEvents().subscribe(events => {
+        console.log(events);
         //@ts-ignore
-        this.events = events.filter(({ group }) => this.group.id === group);
+        this.events = events.filter(event => this.group.id === event.group);
       });
     });
   }

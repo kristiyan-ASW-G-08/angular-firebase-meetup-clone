@@ -30,6 +30,8 @@ import { GroupCardComponent } from './shared/group-card/group-card.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { GroupsComponent } from './core/groups/groups.component';
 import { GroupPageComponent } from './core/group-page/group-page.component';
+import { CommentFormComponent } from './core/comment-form/comment-form.component';
+import { CommentService } from './services/comment.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { GroupPageComponent } from './core/group-page/group-page.component';
     FooterComponent,
     GroupsComponent,
     GroupPageComponent,
+    CommentFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,7 @@ import { GroupPageComponent } from './core/group-page/group-page.component';
     AngularFireAuthModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [EventService, AuthService, GroupService],
+  providers: [EventService, AuthService, GroupService, CommentService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

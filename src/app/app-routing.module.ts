@@ -15,7 +15,9 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'groups/:groupId/event', component: EventFormComponent },
+  { path: 'groups/:groupId/comment', component: EventFormComponent },
   { path: 'create/group', component: GroupFormComponent },
+  { path: 'groups', component: GroupsComponent },
   { path: 'events', component: EventsComponent },
   { path: 'groups', component: GroupsComponent },
   {

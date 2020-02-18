@@ -8,39 +8,35 @@ import {
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EventService } from 'src/app/services/event.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import categories from '../../shared/categories';
+import { CommentService } from 'src/app/services/comment.service';
 @Component({
-  selector: 'app-event-form',
-  templateUrl: './event-form.component.html',
+  selector: 'app-comment-form',
+  templateUrl: './comment-form.component.html',
+  styleUrls: ['./comment-form.component.scss'],
 })
-export class EventFormComponent {
-  eventForm: FormGroup;
-  categories = categories;
+export class CommentFormComponent {
+  commentForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private eventService: EventService,
+    private commentService: CommentService,
     private route: ActivatedRoute,
     private router: Router,
     private flashMessage: FlashMessagesService,
+    private authService: AuthService,
   ) {
-    this.eventForm = formBuilder.group({
-      name: ['', [Validators.required]],
-      category: ['', [Validators.required]],
-      description: ['', [Validators.required, Validators.minLength(10)]],
-      location: ['', [Validators.required]],
-      date: ['', [Validators.required]],
-      time: ['', [Validators.required]],
+    this.commentForm = formBuilder.group({
+      content: ['', [Validators.required]],
     });
   }
   async onSubmit() {
     try {
       if (this.eventForm.status === 'VALID') {
-        this.eventService.addNewEvent({
+        this.commentService.addNewComment({
           ...this.eventForm.value,
-          attendees: 0,
           group: this.route.snapshot.paramMap.get('groupId'),
+          date: Date.now().toString(),
+          email: '',
         });
         this.router.navigate([`/`]);
       }
