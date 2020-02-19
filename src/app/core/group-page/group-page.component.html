@@ -71,7 +71,16 @@
   <section class="section" *ngIf="activeTab === 'comments'">
     <div class="container" style="text-align: center;">
       <h2 *ngIf="!isAuth" class="title is-4">Log in to comment</h2>
-      <a *ngIf="isAuth" class="button">Comment</a>
+      <app-comment-form *ngIf="isAuth"></app-comment-form>
+      <h2 class="title is-4">Comments</h2>
+      <div class="columns">
+        <app-comment
+          *ngFor="let comment of comments"
+          [comment]="comment"
+          class="column is-one-quarter"
+        >
+        </app-comment>
+      </div>
     </div>
   </section>
 </div>

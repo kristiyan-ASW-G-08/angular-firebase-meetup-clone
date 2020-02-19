@@ -32,6 +32,7 @@ import { GroupsComponent } from './core/groups/groups.component';
 import { GroupPageComponent } from './core/group-page/group-page.component';
 import { CommentFormComponent } from './core/comment-form/comment-form.component';
 import { CommentService } from './services/comment.service';
+import { CommentComponent } from './shared/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CommentService } from './services/comment.service';
     GroupsComponent,
     GroupPageComponent,
     CommentFormComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

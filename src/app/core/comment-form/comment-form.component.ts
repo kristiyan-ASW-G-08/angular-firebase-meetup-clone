@@ -31,14 +31,15 @@ export class CommentFormComponent {
   }
   async onSubmit() {
     try {
-      if (this.eventForm.status === 'VALID') {
+      if (this.commentForm.status === 'VALID') {
         this.commentService.addNewComment({
-          ...this.eventForm.value,
+          ...this.commentForm.value,
           group: this.route.snapshot.paramMap.get('groupId'),
           date: Date.now().toString(),
-          email: '',
+          displayName: 'Placeholder',
         });
-        this.router.navigate([`/`]);
+
+        this.commentForm.reset();
       }
     } catch (err) {
       this.flashMessage.show('Something went wrong. Try again.', {
