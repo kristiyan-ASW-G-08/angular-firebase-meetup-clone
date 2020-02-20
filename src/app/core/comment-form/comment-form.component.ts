@@ -31,15 +31,21 @@ export class CommentFormComponent {
   }
   async onSubmit() {
     try {
+      console.log(this.commentForm);
       if (this.commentForm.status === 'VALID') {
-        this.commentService.addNewComment({
-          ...this.commentForm.value,
-          group: this.route.snapshot.paramMap.get('groupId'),
-          date: Date.now().toString(),
-          displayName: 'Placeholder',
-        });
+        this.authService.getAuth().subscribe(auth => {
+          if (auth) {
+            console.log(this.commentForm.value);
+            this.commentService.addNewComment({
+              ...this.commentForm.value,
+              group: this.route.snapshot.paramMap.get('groupId'),
+              date: Date.now().toString(),
+              displayName: auth.displayName,
+            });
 
-        this.commentForm.reset();
+            this.commentForm.reset();
+          }
+        });
       }
     } catch (err) {
       this.flashMessage.show('Something went wrong. Try again.', {

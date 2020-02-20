@@ -38,6 +38,7 @@ export class SignUpComponent {
     private flashMessage: FlashMessagesService,
   ) {
     this.signUpForm = formBuilder.group({
+      displayName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       passwords: formBuilder.group(
         {
@@ -53,11 +54,12 @@ export class SignUpComponent {
       const {
         value: {
           email,
+          displayName,
           passwords: { password },
         },
       } = this.signUpForm;
       if (this.signUpForm.status === 'VALID') {
-        await this.authService.signUp(email, password);
+        await this.authService.signUp(email, password, displayName);
         this.router.navigate(['/']);
       }
     } catch (err) {

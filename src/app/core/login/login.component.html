@@ -1,73 +1,75 @@
-<section class="section container is-centered box">
-  <form class="section" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-        <input
-          class="input"
-          type="email"
-          formControlName="email"
-          placeholder="Enter an email address"
-        />
-      </div>
-      <div
-        *ngIf="
-          loginForm.controls['email'].invalid &&
-          (loginForm.controls['email'].dirty ||
-            loginForm.controls['email'].touched)
-        "
-      >
-        <p
-          *ngIf="loginForm.get('email').hasError('required')"
-          class="help is-danger"
+<section class="section container is-centered">
+  <div class="box">
+    <form class="section" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input
+            class="input"
+            type="email"
+            formControlName="email"
+            placeholder="Enter an email address"
+          />
+        </div>
+        <div
+          *ngIf="
+            loginForm.controls['email'].invalid &&
+            (loginForm.controls['email'].dirty ||
+              loginForm.controls['email'].touched)
+          "
         >
-          Email is Required
-        </p>
-        <p
-          *ngIf="loginForm.get('email').hasError('email')"
-          class="help is-danger"
-        >
-          Must be a valid email
-        </p>
+          <p
+            *ngIf="loginForm.get('email').hasError('required')"
+            class="help is-danger"
+          >
+            Email is Required
+          </p>
+          <p
+            *ngIf="loginForm.get('email').hasError('email')"
+            class="help is-danger"
+          >
+            Must be a valid email
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <label class="label">Password</label>
-      <div class="control">
-        <input
-          class="input"
-          type="password"
-          formControlName="password"
-          placeholder="Enter a Password"
-        />
-      </div>
-      <div
-        *ngIf="
-          loginForm.controls['password'].invalid &&
-          (loginForm.controls['password'].dirty ||
-            loginForm.controls['password'].touched)
-        "
-      >
-        <p
-          *ngIf="loginForm.get('password').hasError('required')"
-          class="help is-danger"
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+          <input
+            class="input"
+            type="password"
+            formControlName="password"
+            placeholder="Enter a Password"
+          />
+        </div>
+        <div
+          *ngIf="
+            loginForm.controls['password'].invalid &&
+            (loginForm.controls['password'].dirty ||
+              loginForm.controls['password'].touched)
+          "
         >
-          Password is Required
-        </p>
-        <p
-          *ngIf="loginForm.get('password').hasError('minlength')"
-          class="help is-danger"
-        >
-          Must be at least 12 characters long
-        </p>
+          <p
+            *ngIf="loginForm.get('password').hasError('required')"
+            class="help is-danger"
+          >
+            Password is Required
+          </p>
+          <p
+            *ngIf="loginForm.get('password').hasError('minlength')"
+            class="help is-danger"
+          >
+            Must be at least 12 characters long
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="field is-grouped">
-      <div class="control">
-        <button class="button is-link">Submit</button>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </section>

@@ -1,149 +1,153 @@
-<section class="section container is-centered box">
-  <form class="section" [formGroup]="groupForm" (ngSubmit)="onSubmit()">
-    <div class="field">
-      <label class="label">Name</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          formControlName="name"
-          placeholder="Enter a name "
-        />
-      </div>
-      <div
-        *ngIf="
-          groupForm.controls['name'].invalid &&
-          (groupForm.controls['name'].dirty ||
-            groupForm.controls['name'].touched)
-        "
-      >
-        <p
-          *ngIf="groupForm.get('name').hasError('required')"
-          class="help is-danger"
+<section class="section container is-centered">
+  <div class="box">
+    <form class="section" [formGroup]="groupForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            formControlName="name"
+            placeholder="Enter a name "
+          />
+        </div>
+        <div
+          *ngIf="
+            groupForm.controls['name'].invalid &&
+            (groupForm.controls['name'].dirty ||
+              groupForm.controls['name'].touched)
+          "
         >
-          Name is Required
-        </p>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label">Description</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          formControlName="description"
-          placeholder="Enter a description"
-        />
-      </div>
-      <div
-        *ngIf="
-          groupForm.controls['description'].invalid &&
-          (groupForm.controls['description'].dirty ||
-            groupForm.controls['description'].touched)
-        "
-      >
-        <p
-          *ngIf="groupForm.get('description').hasError('required')"
-          class="help is-danger"
-        >
-          Description is Required
-        </p>
-        <p
-          *ngIf="groupForm.get('description').hasError('minlength')"
-          class="help is-danger"
-        >
-          Too short
-        </p>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label">Location</label>
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          formControlName="location"
-          placeholder="Enter a location"
-        />
-      </div>
-      <div
-        *ngIf="
-          groupForm.controls['location'].invalid &&
-          (groupForm.controls['location'].dirty ||
-            groupForm.controls['location'].touched)
-        "
-      >
-        <p
-          *ngIf="groupForm.get('location').hasError('required')"
-          class="help is-danger"
-        >
-          Location is Required
-        </p>
-      </div>
-    </div>
-
-    <div class="field">
-      <label class="label">Category</label>
-      <div class="control">
-        <div class="select">
-          <select formControlName="category">
-            <option *ngFor="let category of categories">{{ category }}</option>
-          </select>
+          <p
+            *ngIf="groupForm.get('name').hasError('required')"
+            class="help is-danger"
+          >
+            Name is Required
+          </p>
         </div>
       </div>
-      <div
-        *ngIf="
-          groupForm.controls['category'].invalid &&
-          (groupForm.controls['category'].dirty ||
-            groupForm.controls['category'].touched)
-        "
-      >
-        <p
-          *ngIf="groupForm.get('category').hasError('required')"
-          class="help is-danger"
-        >
-          Category is Required
-        </p>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Image Url</label>
-      <div class="control">
-        <input
-          class="input"
-          type="url"
-          formControlName="imageUrl"
-          placeholder="Enter a imageUrl"
-        />
-      </div>
-      <div
-        *ngIf="
-          groupForm.controls['imageUrl'].invalid &&
-          (groupForm.controls['imageUrl'].dirty ||
-            groupForm.controls['imageUrl'].touched)
-        "
-      >
-        <p
-          *ngIf="groupForm.get('imageUrl').hasError('required')"
-          class="help is-danger"
-        >
-          Image Url is Required
-        </p>
-        <p
-          *ngIf="groupForm.get('imageUrl').hasError('pattern')"
-          class="help is-danger"
-        >
-          Image Url must be a valid url
-        </p>
-      </div>
-    </div>
 
-    <div class="field is-grouped">
-      <div class="control">
-        <button class="button is-link">Submit</button>
+      <div class="field">
+        <label class="label">Description</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            formControlName="description"
+            placeholder="Enter a description"
+          />
+        </div>
+        <div
+          *ngIf="
+            groupForm.controls['description'].invalid &&
+            (groupForm.controls['description'].dirty ||
+              groupForm.controls['description'].touched)
+          "
+        >
+          <p
+            *ngIf="groupForm.get('description').hasError('required')"
+            class="help is-danger"
+          >
+            Description is Required
+          </p>
+          <p
+            *ngIf="groupForm.get('description').hasError('minlength')"
+            class="help is-danger"
+          >
+            Too short
+          </p>
+        </div>
       </div>
-    </div>
-  </form>
+
+      <div class="field">
+        <label class="label">Location</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            formControlName="location"
+            placeholder="Enter a location"
+          />
+        </div>
+        <div
+          *ngIf="
+            groupForm.controls['location'].invalid &&
+            (groupForm.controls['location'].dirty ||
+              groupForm.controls['location'].touched)
+          "
+        >
+          <p
+            *ngIf="groupForm.get('location').hasError('required')"
+            class="help is-danger"
+          >
+            Location is Required
+          </p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Category</label>
+        <div class="control">
+          <div class="select">
+            <select formControlName="category">
+              <option *ngFor="let category of categories">{{
+                category
+              }}</option>
+            </select>
+          </div>
+        </div>
+        <div
+          *ngIf="
+            groupForm.controls['category'].invalid &&
+            (groupForm.controls['category'].dirty ||
+              groupForm.controls['category'].touched)
+          "
+        >
+          <p
+            *ngIf="groupForm.get('category').hasError('required')"
+            class="help is-danger"
+          >
+            Category is Required
+          </p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Image Url</label>
+        <div class="control">
+          <input
+            class="input"
+            type="url"
+            formControlName="imageUrl"
+            placeholder="Enter a imageUrl"
+          />
+        </div>
+        <div
+          *ngIf="
+            groupForm.controls['imageUrl'].invalid &&
+            (groupForm.controls['imageUrl'].dirty ||
+              groupForm.controls['imageUrl'].touched)
+          "
+        >
+          <p
+            *ngIf="groupForm.get('imageUrl').hasError('required')"
+            class="help is-danger"
+          >
+            Image Url is Required
+          </p>
+          <p
+            *ngIf="groupForm.get('imageUrl').hasError('pattern')"
+            class="help is-danger"
+          >
+            Image Url must be a valid url
+          </p>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </section>

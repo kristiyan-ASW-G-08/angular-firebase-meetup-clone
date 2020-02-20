@@ -1,114 +1,143 @@
-<section class="section container is-centered box">
-  <form class="section " [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="field">
-      <label class="label">Email</label>
-      <div class="control">
-        <input
-          class="input"
-          type="email"
-          formControlName="email"
-          placeholder="Enter an email address"
-        />
-      </div>
-      <div
-        *ngIf="
-          signUpForm.controls['email'].invalid &&
-          (signUpForm.controls['email'].dirty ||
-            signUpForm.controls['email'].touched)
-        "
-      >
-        <p
-          *ngIf="signUpForm.get('email').hasError('required')"
-          class="help is-danger"
-        >
-          Email is Required
-        </p>
-        <p
-          *ngIf="signUpForm.get('email').hasError('email')"
-          class="help is-danger"
-        >
-          Must be a valid email
-        </p>
-      </div>
-    </div>
-    <div class="subgroup" formGroupName="passwords">
+<section class="section container is-centered ">
+  <div class="box">
+    <form class="section " [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
       <div class="field">
-        <label class="label">Password</label>
-        <input
-          class="input"
-          type="password"
-          formControlName="password"
-          placeholder="Enter a Password"
-        />
-        <div
-          *ngIf="
-            signUpForm.controls.passwords.controls['password'].invalid &&
-            (signUpForm.controls.passwords.controls['password'].dirty ||
-              signUpForm.controls.passwords.controls['password'].touched)
-          "
-        >
-          <p
-            *ngIf="
-              signUpForm.controls.passwords.get('password').hasError('required')
-            "
-            class="help is-danger"
-          >
-            Password is Required
-          </p>
-          <p
-            *ngIf="
-              signUpForm.controls.passwords
-                .get('password')
-                .hasError('minlength')
-            "
-            class="help is-danger"
-          >
-            Must be at least 12 characters
-          </p>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Repeat Password</label>
+        <label class="label">Username</label>
         <div class="control">
           <input
             class="input"
-            type="password"
-            formControlName="confirmPassword"
-            placeholder="Repeat your Password"
+            type="text"
+            formControlName="displayName"
+            placeholder="Enter an username"
           />
         </div>
         <div
           *ngIf="
-            signUpForm.controls.passwords.controls['password'].invalid &&
-            (signUpForm.controls.passwords.controls['password'].dirty ||
-              signUpForm.controls.passwords.controls['password'].touched)
+            signUpForm.controls['displayName'].invalid &&
+            (signUpForm.controls['displayName'].dirty ||
+              signUpForm.controls['displayName'].touched)
           "
         >
           <p
-            *ngIf="
-              signUpForm.controls.passwords
-                .get('confirmPassword')
-                .hasError('required')
-            "
+            *ngIf="signUpForm.get('displayName').hasError('required')"
             class="help is-danger"
           >
-            Password is Required
+            Username is Required
           </p>
         </div>
-        <p
-          *ngIf="signUpForm.controls.passwords?.errors?.confirmPassword"
-          class="help is-danger"
+      </div>
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+          <input
+            class="input"
+            type="email"
+            formControlName="email"
+            placeholder="Enter an email address"
+          />
+        </div>
+        <div
+          *ngIf="
+            signUpForm.controls['email'].invalid &&
+            (signUpForm.controls['email'].dirty ||
+              signUpForm.controls['email'].touched)
+          "
         >
-          Passwords must match
-        </p>
+          <p
+            *ngIf="signUpForm.get('email').hasError('required')"
+            class="help is-danger"
+          >
+            Email is Required
+          </p>
+          <p
+            *ngIf="signUpForm.get('email').hasError('email')"
+            class="help is-danger"
+          >
+            Must be a valid email
+          </p>
+        </div>
       </div>
-    </div>
-    <br />
-    <div class="field is-grouped field">
-      <div class="control">
-        <button class="button is-link">Submit</button>
+      <div class="subgroup" formGroupName="passwords">
+        <div class="field">
+          <label class="label">Password</label>
+          <input
+            class="input"
+            type="password"
+            formControlName="password"
+            placeholder="Enter a Password"
+          />
+          <div
+            *ngIf="
+              signUpForm.controls.passwords.controls['password'].invalid &&
+              (signUpForm.controls.passwords.controls['password'].dirty ||
+                signUpForm.controls.passwords.controls['password'].touched)
+            "
+          >
+            <p
+              *ngIf="
+                signUpForm.controls.passwords
+                  .get('password')
+                  .hasError('required')
+              "
+              class="help is-danger"
+            >
+              Password is Required
+            </p>
+            <p
+              *ngIf="
+                signUpForm.controls.passwords
+                  .get('password')
+                  .hasError('minlength')
+              "
+              class="help is-danger"
+            >
+              Must be at least 12 characters
+            </p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Repeat Password</label>
+          <div class="control">
+            <input
+              class="input"
+              type="password"
+              formControlName="confirmPassword"
+              placeholder="Repeat your Password"
+            />
+          </div>
+          <div
+            *ngIf="
+              signUpForm.controls.passwords.controls['password'].invalid &&
+              (signUpForm.controls.passwords.controls['password'].dirty ||
+                signUpForm.controls.passwords.controls['password'].touched)
+            "
+          >
+            <p
+              *ngIf="
+                signUpForm.controls.passwords
+                  .get('confirmPassword')
+                  .hasError('required')
+              "
+              class="help is-danger"
+            >
+              Password is Required
+            </p>
+          </div>
+          <p
+            *ngIf="signUpForm.controls.passwords?.errors?.confirmPassword"
+            class="help is-danger"
+          >
+            Passwords must match
+          </p>
+        </div>
       </div>
-    </div>
-  </form>
+      <br />
+      <div class="field is-grouped field">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </section>

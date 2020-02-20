@@ -1,34 +1,37 @@
-<section class="section container is-centered box">
-  <form class="section" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
-    <div class="field">
-      <div class="control">
-        <input
-          class="input"
-          type="text"
-          formControlName="content"
-          placeholder="Enter your comment"
-        />
-      </div>
-      <div
-        *ngIf="
-          commentForm.controls['content'].invalid &&
-          (commentForm.controls['content'].dirty ||
-            commentForm.controls['content'].touched)
-        "
-      >
-        <p
-          *ngIf="commentForm.get('content').hasError('required')"
-          class="help is-danger"
+<section class="section container is-centered ">
+  <div class="box">
+    <form class="section" [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label class="label">Comment</label>
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            formControlName="content"
+            placeholder="Enter your comment"
+          />
+        </div>
+        <div
+          *ngIf="
+            commentForm.controls['content'].invalid &&
+            (commentForm.controls['content'].dirty ||
+              commentForm.controls['content'].touched)
+          "
         >
-          Required
-        </p>
+          <p
+            *ngIf="commentForm.get('content').hasError('required')"
+            class="help is-danger"
+          >
+            Required
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="field is-grouped">
-      <div class="control">
-        <button class="button is-link">Submit</button>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </section>

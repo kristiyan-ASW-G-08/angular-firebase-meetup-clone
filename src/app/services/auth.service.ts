@@ -16,14 +16,20 @@ export class AuthService {
     });
   }
 
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, displayName: string) {
     return new Promise((resolve, reject) => {
       this.firebaseAuth.auth
         .createUserWithEmailAndPassword(email, password)
-        .then(
-          userData => resolve(userData),
-          err => reject(err),
-        );
+        .then(userData => {
+          userData.user
+            .updateProfile({
+              displayName,
+            })
+            .then(
+              userData => resolve(userData),
+              err => reject(err),
+            );
+        });
     });
   }
 

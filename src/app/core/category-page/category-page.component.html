@@ -7,7 +7,23 @@
     </div>
   </div>
 </section>
-<section class="section">
+<div class="tabs is-centered">
+  <ul>
+    <li
+      [class.is-active]="activeTab === 'groups'"
+      (click)="activateTab('groups')"
+    >
+      <a>Groups</a>
+    </li>
+    <li
+      [class.is-active]="activeTab === 'events'"
+      (click)="activateTab('events')"
+    >
+      <a>Events</a>
+    </li>
+  </ul>
+</div>
+<section class="section" *ngIf="activeTab === 'events'">
   <h4 class="title is-5 " *ngIf="!events.length">
     No events found
   </h4>
@@ -18,5 +34,19 @@
       class="column is-one-quarter"
     >
     </app-event-card>
+  </section>
+</section>
+
+<section class="section" *ngIf="activeTab === 'groups'">
+  <h4 class="title is-5 " *ngIf="!groups.length">
+    No groups found
+  </h4>
+  <section role="feed" class="columns">
+    <app-group-card
+      *ngFor="let group of groups"
+      [group]="group"
+      class="column is-one-quarter is-flex"
+    >
+    </app-group-card>
   </section>
 </section>
