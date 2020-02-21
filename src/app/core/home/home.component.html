@@ -8,7 +8,22 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptatum
         aliquam sequi neque voluptas corrupti.
         <div class="buttons buttons-container ">
-          <a class="button is-link">Join MeetupC</a>
+          <a
+            *ngIf="!isAuth"
+            routerLink="sign-up"
+            routerLinkActive="is-active"
+            class="button is-link"
+            style="margin-top: 15px;"
+            >Join MeetupC</a
+          >
+          <a
+            *ngIf="isAuth"
+            routerLink="create/group"
+            routerLinkActive="is-active"
+            class="button is-link"
+            style="margin-top: 15px;"
+            >Create Group</a
+          >
         </div>
       </h2>
     </div>

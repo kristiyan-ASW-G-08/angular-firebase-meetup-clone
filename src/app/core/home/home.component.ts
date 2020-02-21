@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import categories from '../../shared/categories';
 import Group from 'src/app/models/group';
 import { GroupService } from 'src/app/services/group.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,20 +14,31 @@ export class HomeComponent implements OnInit {
   categories = categories;
   events: Event[];
   groups: Group[];
+  isAuth: boolean;
   constructor(
     private eventService: EventService,
     private groupService: GroupService,
+    private authService: AuthService,
   ) {
     this.eventService.getEvents().subscribe(events => {
       //@ts-ignore
-      this.events = events;
+      this.events = events.slice(0, 4);
       console.log(events);
     });
 
     this.groupService.getGroups().subscribe(groups => {
       //@ts-ignore
-      this.groups = groups;
+      this.groups = groups.slice(0, 4);
       console.log(groups);
+    });
+
+    this.authService.getAuth().subscribe(auth => {
+      if (auth) {
+        this.isAuth = true;
+      } else {
+        this.isAuth = false;
+      }
+      console.log(this.isAuth);
     });
   }
 

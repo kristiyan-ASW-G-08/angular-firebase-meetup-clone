@@ -13,6 +13,7 @@ export class GroupsComponent implements OnInit {
     this.groupService.getGroups().subscribe(groups => {
       //@ts-ignore
       this.groups = groups;
+      console.log(groups);
     });
   }
 
