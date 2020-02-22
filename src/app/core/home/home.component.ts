@@ -23,13 +23,13 @@ export class HomeComponent implements OnInit {
     this.eventService.getEvents().subscribe(events => {
       //@ts-ignore
       this.events = events.slice(0, 4);
-      console.log(events);
+
     });
 
     this.groupService.getGroups().subscribe(groups => {
       //@ts-ignore
       this.groups = groups.slice(0, 4);
-      console.log(groups);
+    
     });
 
     this.authService.getAuth().subscribe(auth => {

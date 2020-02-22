@@ -39,6 +39,14 @@
       <a class="navbar-item" routerLink="groups" routerLinkActive="is-active">
         Groups
       </a>
+      <a
+        *ngIf="isAuth"
+        class="navbar-item"
+        routerLink="groups"
+        routerLinkActive="is-active"
+      >
+        My Groups
+      </a>
     </div>
 
     <div class="navbar-end">

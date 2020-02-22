@@ -51,14 +51,8 @@
       cupiditate illum voluptates, necessitatibus velit?
     </h4>
   </div>
-  <section role="feed" class="columns">
-    <app-group-card
-      *ngFor="let group of groups"
-      [group]="group"
-      class="column is-one-quarter is-flex"
-    >
-    </app-group-card>
-  </section>
+  <app-groups-container [groups]="groups"></app-groups-container>
+
   <a routerLink="groups" routerLinkActive="is-active" class="button">
     See All
   </a>
@@ -72,14 +66,8 @@
       cupiditate illum voluptates, necessitatibus velit?
     </h4>
   </div>
-  <div class="columns">
-    <app-event-card
-      *ngFor="let event of events"
-      [event]="event"
-      class="column is-one-quarter"
-    >
-    </app-event-card>
-  </div>
+  <app-events-container [events]="events"></app-events-container>
+
   <a routerLink="events" routerLinkActive="is-active" class="button">
     See All
   </a>

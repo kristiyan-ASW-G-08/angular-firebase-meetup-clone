@@ -11,25 +11,32 @@ import { GroupFormComponent } from './core/group-form/group-form.component';
 import { GroupsComponent } from './core/groups/groups.component';
 import { GroupPageComponent } from './core/group-page/group-page.component';
 import { CommentFormComponent } from './core/comment-form/comment-form.component';
-import {
-  AngularFireAuthGuard,
-  hasCustomClaim,
-  redirectUnauthorizedTo,
-  redirectLoggedInTo,
-} from '@angular/fire/auth-guard';
+import { AuthGuard } from './guards/auth.guard';
+import { UserGroupsComponent } from './core/user-groups/user-groups.component';
 
-const redirectToLoginPage = () => redirectUnauthorizedTo(['login']);
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'groups/:groupId/event', component: EventFormComponent },
-  { path: 'groups/:groupId/comment', component: CommentFormComponent },
+  {
+    path: 'groups/:groupId/event',
+    component: EventFormComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'groups/:groupId/comment',
+    component: CommentFormComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user/groups',
+    component: UserGroupsComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'create/group',
     component: GroupFormComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectToLoginPage },
+    canActivate: [AuthGuard],
   },
   { path: 'groups', component: GroupsComponent },
   { path: 'events', component: EventsComponent },
@@ -48,6 +55,6 @@ export const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AngularFireAuthGuard],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule {}

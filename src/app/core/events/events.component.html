@@ -1,8 +1,1 @@
-<section role="feed" class="columns section is-multiline">
-  <app-event-card
-    *ngFor="let event of events"
-    [event]="event"
-    class="column is-one-quarter"
-  >
-  </app-event-card>
-</section>
+<app-events-container [events]="events"></app-events-container>

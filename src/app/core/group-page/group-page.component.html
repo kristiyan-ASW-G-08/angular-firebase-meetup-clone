@@ -58,14 +58,7 @@
   </section>
 
   <section class="section" *ngIf="activeTab === 'events'">
-    <div class="columns">
-      <app-event-card
-        *ngFor="let event of events"
-        [event]="event"
-        class="column is-one-quarter"
-      >
-      </app-event-card>
-    </div>
+    <app-events-container [events]="events"></app-events-container>
   </section>
 
   <section class="section" *ngIf="activeTab === 'comments'">

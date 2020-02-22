@@ -26,6 +26,7 @@ describe('SignUpComponent', () => {
       ],
     });
     const invalidInputs = [
+      { placeholder: 'Enter an username', value: '' },
       { placeholder: 'Enter an email address', value: 'invalidEmail' },
       { placeholder: 'Enter a Password', value: 'invPass' },
       { placeholder: 'Repeat your Password', value: 'motMr' },
@@ -35,6 +36,7 @@ describe('SignUpComponent', () => {
       type(input, value);
     });
     const inputs = [
+      { placeholder: 'Enter an username', value: 'someUser' },
       { placeholder: 'Enter an email address', value: 'someValid@mail.com' },
       { placeholder: 'Enter a Password', value: 'someValidPassword' },
       { placeholder: 'Repeat your Password', value: 'someValidPassword' },
