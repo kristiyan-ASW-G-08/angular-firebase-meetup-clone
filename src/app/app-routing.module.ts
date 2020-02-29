@@ -19,16 +19,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
   {
-    path: 'groups/:groupId/event',
-    component: EventFormComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'groups/:groupId/comment',
-    component: CommentFormComponent,
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'user/groups',
     component: UserGroupsComponent,
     canActivate: [AuthGuard],
@@ -44,10 +34,6 @@ export const routes: Routes = [
   {
     path: 'categories/:category',
     component: CategoryPageComponent,
-  },
-  {
-    path: 'groups/:groupId',
-    component: GroupPageComponent,
   },
   { path: '**', component: NotFoundComponent },
 ];

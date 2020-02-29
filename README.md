@@ -16,3 +16,4 @@ The user can
 - create groups /events
 - comment in groups
 - browser categories / groups /events
+

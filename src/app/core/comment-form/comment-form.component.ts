@@ -31,11 +31,9 @@ export class CommentFormComponent {
   }
   async onSubmit() {
     try {
-      console.log(this.commentForm);
       if (this.commentForm.status === 'VALID') {
         this.authService.getAuth().subscribe(auth => {
           if (auth) {
-            console.log(this.commentForm.value);
             this.commentService.addNewComment({
               ...this.commentForm.value,
               group: this.route.snapshot.paramMap.get('groupId'),
