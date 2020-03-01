@@ -19,8 +19,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
-import { EventFormComponent } from './core/event-form/event-form.component';
-import { EventCardComponent } from './shared/event-card/event-card.component';
 import { EventsComponent } from './core/events/events.component';
 import { CategoryComponent } from './shared/category/category.component';
 import { CategoryPageComponent } from './core/category-page/category-page.component';
@@ -29,13 +27,10 @@ import { GroupService } from './services/group.service';
 import { GroupCardComponent } from './shared/group-card/group-card.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { GroupsComponent } from './core/groups/groups.component';
-import { GroupPageComponent } from './core/group-page/group-page.component';
-import { CommentFormComponent } from './core/comment-form/comment-form.component';
 import { CommentService } from './services/comment.service';
-import { CommentComponent } from './shared/comment/comment.component';
 import { UserGroupsComponent } from './core/user-groups/user-groups.component';
 import { GroupsContainerComponent } from './shared/groups-container/groups-container.component';
-import { EventsContainerComponent } from './shared/events-container/events-container.component';
+import { GroupModuleModule } from './core/group-module/group-module.module';
 
 @NgModule({
   declarations: [
@@ -47,8 +42,6 @@ import { EventsContainerComponent } from './shared/events-container/events-conta
     SignUpComponent,
     ErrorMessageComponent,
     NotFoundComponent,
-    EventFormComponent,
-    EventCardComponent,
     EventsComponent,
     CategoryComponent,
     CategoryPageComponent,
@@ -56,14 +49,11 @@ import { EventsContainerComponent } from './shared/events-container/events-conta
     GroupCardComponent,
     FooterComponent,
     GroupsComponent,
-    GroupPageComponent,
-    CommentFormComponent,
-    CommentComponent,
     UserGroupsComponent,
     GroupsContainerComponent,
-    EventsContainerComponent,
   ],
   imports: [
+    GroupModuleModule,
     BrowserModule,
     FontAwesomeModule,
     AppRoutingModule,
