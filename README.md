@@ -1,3 +1,10 @@
+* Meetup Clone
+
+- frontend:  angular and bulma
+- backend: firebase 
+
+
+
 ```
 src
 ├── app
