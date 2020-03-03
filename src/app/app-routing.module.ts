@@ -15,9 +15,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { UserGroupsComponent } from './core/user-groups/user-groups.component';
 
 export const routes: Routes = [
-    {
-    path: 'customers',
-    loadChildren: () => import('./core/groups/groups.component').then(m => m.Groups)
+  {
+    path: 'groups',
+    loadChildren: () =>
+      import('./core/group-module/group-module.module').then(
+        m => m.GroupModuleModule,
+      ),
   },
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
