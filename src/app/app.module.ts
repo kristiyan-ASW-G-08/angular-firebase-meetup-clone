@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
@@ -31,6 +31,7 @@ import { CommentService } from './services/comment.service';
 import { UserGroupsComponent } from './core/user-groups/user-groups.component';
 import { GroupsContainerComponent } from './shared/groups-container/groups-container.component';
 import { GroupModuleModule } from './core/group-module/group-module.module';
+import { GlobalErrorHandler } from './services/error-handler.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,13 @@ import { GroupModuleModule } from './core/group-module/group-module.module';
     AngularFireAuthModule,
     FlashMessagesModule.forRoot(),
   ],
-  providers: [EventService, AuthService, GroupService, CommentService],
+  providers: [
+    EventService,
+    AuthService,
+    GroupService,
+    CommentService,
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
